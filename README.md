@@ -44,7 +44,7 @@ An alternative is fix this is to consider rendering all your Pandas columns to l
 
 4. Run the ETL pipelines:
    ```bash
-   python ETL_ingestion.py SQL_ETL_pipe_line_1.py  SQL_ETL_pipe_line_2.py  SQL_ETL_pipe_line_3.py 
+   python ETL_ingestion.py; SQL_ETL_pipe_line_1.py;  SQL_ETL_pipe_line_2.py;  SQL_ETL_pipe_line_3.py 
    ```
 
 ## Contributing
