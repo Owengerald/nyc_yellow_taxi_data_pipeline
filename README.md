@@ -24,7 +24,7 @@ as other SQL ETL pipeline modules depend on it. This module contains two essenti
 - load_report_to_warehouse(): This function loads the transformed data into the database.
 
 ## Special Observation
-In the first SQL ETL pipeline module, #SQL_ETL_pipeline_1", a data issue was observed with the column name "VendorID."
+In the first SQL ETL pipeline module, "SQL_ETL_pipeline_1", a data issue was observed with the column name "VendorID."
 Due to inconsistent capitalization, this column couldn't be used directly in SQL queries.
 To resolve this, quotation marks were added around the column name in SQL queries, ensuring consistent access and proper functionality.
 An alternative is fix this is to consider rendering all your Pandas columns to lower case.
