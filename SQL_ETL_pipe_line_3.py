@@ -8,33 +8,30 @@ engine = create_engine(f'postgresql://{db.user}:{db.password}@{db.host}:{db.port
 
 engine.connect()
 
-
-
 # financial_performance
-
 # 1) What is the average fare amount per trip?
 avg_fare_amount_query = '''
-						SELECT AVG(fare_amount) AS avg_fare_amount
-						FROM nyc_taxi;
-						'''
+			SELECT AVG(fare_amount) AS avg_fare_amount
+			FROM nyc_taxi;
+			'''
 avg_fare_amount = pd.read_sql(avg_fare_amount_query, engine)
 #print(avg_fare_amount)
 
 
 # 2) How much revenue was generated from tolls and surcharges combined?
 total_tolls_and_surcharges_revenue_query = '''
-											SELECT SUM( tolls_amount + improvement_surcharge) AS total_tolls_and_surcharges_revenue
-											FROM nyc_taxi;
-											'''
+			SELECT SUM( tolls_amount + improvement_surcharge) AS total_tolls_and_surcharges_revenue
+			FROM nyc_taxi;
+			'''
 total_tolls_and_surcharges_revenue = pd.read_sql(total_tolls_and_surcharges_revenue_query, engine)
 #print(total_tolls_and_surcharges_revenue)
 
 
 # 3) What is the average total amount paid by passengers?
 avg_total_amount_query = '''
-						SELECT AVG(total_amount) AS avg_total_amount
-						FROM nyc_taxi;
-						'''
+			SELECT AVG(total_amount) AS avg_total_amount
+			FROM nyc_taxi;
+			'''
 avg_total_amount = pd.read_sql(avg_total_amount_query, engine)
 #print(avg_total_amount)
 
@@ -61,6 +58,5 @@ df_report = et.transform_data(report, engine)
 #print(df_report)
 
 et.load_report_to_warehouse(df_report, 'financial_performance', engine)
-
 
 engine.dispose()
