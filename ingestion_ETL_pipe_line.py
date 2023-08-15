@@ -8,19 +8,17 @@ engine = create_engine(f'postgresql://{db.user}:{db.password}@{db.host}:{db.port
 
 engine.connect()
 
-# reading csv file
-#file = r"C:\Users\ASUS\Desktop\Cohort_5\archive\yellow_tripdata_2016-02.csv"
+# reading csv file for data overview 
+file = "yellow_tripdata_2016-02.csv"
 
-#data = pd.read_csv(csv_file, chunksize=100000)
-
-#df_data = next(data)
+data = pd.read_csv(csv_file, chunksize=100000)
+df_data = next(data)
 
 # looking at the file to get information
 #print(df_data.head())
-
 #print(df_data.info())
 
-# creating function for data extraction, transformation and loading
+# creating a function for data extraction, transformation and loading
 def etl_nyc_taxi(file, chunk_size, table_name, connection):
 	try:
 		df_data = pd.read_csv(file, chunksize=chunk_size)
@@ -47,7 +45,7 @@ def etl_nyc_taxi(file, chunk_size, table_name, connection):
 	finally:
 		connection.dispose()
 
-file = r"C:\Users\ASUS\Desktop\Cohort_5\archive\yellow_tripdata_2016-02.csv"
+file = "yellow_tripdata_2016-02.csv"
 chunk_size = 100000
 table_name = 'nyc_taxi'
 connection = engine
