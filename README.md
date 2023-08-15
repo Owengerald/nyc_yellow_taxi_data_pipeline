@@ -39,16 +39,10 @@ An alternative is fix this is to consider rendering all your Pandas columns to l
 2. Navigate to the repository directory:
    ```bash
    cd nyc_yellow_taxi_ETL_data_pipeline
-   ```
 
-3. Install dependencies (SqlAlchemy):
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. Update database credentials in "db_credentials.py".
 
-4. Update database credentials in `db_credentials.py`.
-
-5. Run the ETL pipelines:
+4. Run the ETL pipelines:
    ```bash
    python main_etl.py
    ```
