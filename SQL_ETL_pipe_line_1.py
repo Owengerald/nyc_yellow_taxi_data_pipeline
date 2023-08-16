@@ -113,7 +113,7 @@ def transform_data(query,connection):
 
 def load_report_to_warehouse(dataframe,table,connection):
     try:
-        dataframe.to_sql(table, con=connection,if_exists='replace')
+        dataframe.to_sql(table, con=connection,if_exists='append')
         print(f'successfully updated {table} table')
     except:
         print(f'Could not update {table}')
